@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc"
+    android:orientation="vertical"
+    >
+
+  <include layout="@layout/layout_title"/>
+  <RadioGroup
+      android:id="@+id/radiogroupfp"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="#ffffff"
+      android:gravity="center_vertical"
+      android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/rbAll"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:checked="true"
+        android:drawableTop="@drawable/tab_selector1"
+        android:gravity="center"
+        android:text="全部发票"
+        android:textColor="@drawable/tab_text_selector" />
+
+    <RadioButton
+        android:id="@+id/rbYkfp"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/tab_selector4"
+        android:gravity="center"
+        android:text="已开发票"
+        android:textColor="@drawable/tab_text_selector" />
+
+
+    <RadioButton
+        android:id="@+id/rbWkfp"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/tab_selector4"
+        android:gravity="center"
+        android:text="未开发票"
+        android:textColor="@drawable/tab_text_selector" />
+  </RadioGroup>
+
+
+  <android.support.v4.view.ViewPager
+      android:id="@+id/viewpagerfp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+</LinearLayout>

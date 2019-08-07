@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    tools:context="com.hf.hf_smartcloud.ui.activity.VerCodeActivity">
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置密码"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:textSize="38sp"/>
+    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_pwd"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="40dp"
+            android:inputType="textPassword"
+            android:layout_marginRight="20dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_repwd"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="40dp"
+            android:inputType="textPassword"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:id="@+id/phoneMailLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="密码支持6--20位数字或字母"
+            android:textColor="@color/hong"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/bt_register_submit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/bg_login_submit_lock"
+            android:elevation="0dp"
+            android:outlineProvider="none"
+            android:text="@string/register_done_hint"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_18"
+            android:translationZ="0dp"
+            tools:targetApi="lollipop" />
+
+
+    </LinearLayout>
+</LinearLayout>

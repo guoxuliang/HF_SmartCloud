@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:orientation="vertical"
+android:layout_height="fill_parent" >
+
+
+
+<RadioGroup
+    android:id="@+id/radiogroup"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="10dp"
+    android:background="#ffffff"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/rbMain"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:checked="true"
+        android:drawableTop="@drawable/tab_selector1"
+        android:gravity="center"
+        android:text="主页"
+        android:textColor="@drawable/tab_text_selector" />
+    <RadioButton
+        android:id="@+id/rbEquipment"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/tab_selector4"
+        android:gravity="center"
+        android:text="设备"
+        android:textColor="@drawable/tab_text_selector" />
+
+
+    <RadioButton
+        android:id="@+id/rbTimer"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/tab_selector4"
+        android:gravity="center"
+        android:text="任务"
+        android:textColor="@drawable/tab_text_selector" />
+    <RadioButton
+        android:id="@+id/rbMe"
+        style="@style/style_RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/tab_selector2"
+        android:gravity="center"
+        android:text="我的"
+        android:textColor="@drawable/tab_text_selector" />
+
+</RadioGroup>
+
+<android.support.v4.view.ViewPager
+    android:id="@+id/viewPager"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/radiogroup" />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#7e7e7e"
+    android:layout_margin="10dp"
+    android:layout_below="@+id/viewPager"/>
+
+
+</RelativeLayout>

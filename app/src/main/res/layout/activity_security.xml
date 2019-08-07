@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc"
+    android:orientation="vertical"
+    >
+
+  <include layout="@layout/layout_title"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="18dp"
+      android:orientation="horizontal">
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="20dp"
+        android:textSize="16sp"
+        android:text="华凡云账号" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5" android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="hf00001" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="0.5dp"
+      android:orientation="horizontal">
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5" android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="手机号" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_marginLeft="20dp" android:textSize="16sp"
+        android:text="181****1234" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:id="@+id/ll_zfpwd"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="15dp"
+      android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp" android:textSize="16sp"
+        android:text="华凡云支付密码" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:id="@+id/qqnotLogin"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="0.5dp"
+      android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivqq"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/icon_bundqq_not" />
+
+    <TextView
+        android:id="@+id/tvqq"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp" android:textSize="16sp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+
+        android:text="未绑定" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:id="@+id/wechartnotLogin"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="0.5dp"
+      android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivchat"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/iconbundwec_not" />
+
+    <TextView
+        android:id="@+id/tvchat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp" android:textSize="16sp"
+        android:text="未绑定" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:layout_marginTop="15dp"
+      android:background="@color/white"
+      android:gravity="center"
+      android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1" android:textSize="16sp"
+        android:text="应急联系人" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="0.5dp"
+      android:orientation="horizontal">
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:text="登录设备管理" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:background="@color/white"
+      android:layout_marginTop="15dp"
+      android:orientation="horizontal">
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:text="华凡云安全中心" />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="30dp" android:textSize="16sp"
+      android:text="如果遇到账号被盗，无法登录等问题，可以前往安全中心" />
+</LinearLayout>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+
+        android:src="@mipmap/icon_right" />
+
+  </LinearLayout>
+
+</LinearLayout>

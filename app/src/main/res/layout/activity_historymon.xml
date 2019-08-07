@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/layout_title"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:context=".MainActivity">
+        <TextView
+            android:id="@+id/tv_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_b"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/tv_sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_s"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <com.veken.chartview.view.LineChartView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/line_chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:showPicResource="@mipmap/ic_launcher"
+        app:startColor="@color/startColor"
+        app:endColor="@color/endColor"
+        app:isNeedBg="true"
+        app:pointDefaultRadius="2dp"
+        app:connectLineColor="@color/endColor"
+        app:isNeedDrawConnectYDataLine="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.veken.chartview.view.PieChartView
+                android:id="@+id/piechart_view"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                />
+            <com.veken.chartview.view.PieChartView
+                android:id="@+id/piechart_viewt"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                />
+        </LinearLayout>
+    <com.veken.chartview.view.BarChartView
+        android:id="@+id/bar_chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

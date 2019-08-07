@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TableRow>
+        <RadioGroup
+            android:id="@+id/rg"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="男" />
+            <RadioButton
+                android:id="@+id/femle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="女"/>
+        </RadioGroup>
+    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/show"/>
+</TableLayout>
