@@ -20,7 +20,9 @@ public class Constants {
     /** 服务器地址 */
 //    public static String SERVER_BASE_URL = "http://kgj.ockeji.com/";//公网
 //    public static String SERVER_BASE_URL ="http://192.168.1.254/www/openly/api/?";//党鹏松本地器测试
-    public static String SERVER_BASE_URL ="https://www.huafanyun.com/api/?";//公网正式器测试
+    public static String SERVER_BASE_URL ="http://124.114.179.82/www/openly/api/?";//服务器域名
+//    public static String SERVER_BASE_URL ="https://www.huafanyun.com/api/?";//公网正式器测试
+//    public static String SERVER_BASE_URL ="http://open.huafanyun.com/api/?";//测试
 }
 
 

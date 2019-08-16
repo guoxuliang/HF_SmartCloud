@@ -185,6 +185,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -212,7 +213,8 @@
                     android:layout_height="0.5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/gray" />
+                    android:background="@color/gray"
+                    android:visibility="gone"/>
 
                 <LinearLayout
                     android:id="@+id/ll_anquan"

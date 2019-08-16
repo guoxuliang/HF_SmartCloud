@@ -49,6 +49,8 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
     LinearLayout qqnotLogin;
     @BindView(R.id.wechartnotLogin)
     LinearLayout wechartnotLogin;
+    @BindView(R.id.resident_city)
+    LinearLayout residentCity;
 
     private String qq = "";
     private String wechat = "";
@@ -82,6 +84,7 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
         qqnotLogin.setOnClickListener(this);
         wechartnotLogin.setOnClickListener(this);
         llZfpwd.setOnClickListener(this);
+        residentCity.setOnClickListener(this);
 
     }
 
@@ -128,6 +131,10 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
                     showToast("未绑定微信");
                 }
                 break;
+            case R.id.resident_city:
+                //TODO  常驻城市
+                openActivity(ResidentCityActivity.class);
+                break;
         }
     }
 
@@ -140,10 +147,10 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
                 // TODO 点击确定按钮
                 if (flag.equals("QQ")) {
                     //TODO 调用qq接触绑定接口
-                    UnbundLogin(token, "Customer.Customer.Qq_unlogin",flag);
+                    UnbundLogin(token, "Customer.Customer.Qq_unlogin", flag);
                 } else if (flag.equals("wechart")) {
                     //TODO 调用微信接触绑定接口
-                    UnbundLogin(token, "Customer.Customer.Wechat_unlogin",flag);
+                    UnbundLogin(token, "Customer.Customer.Wechat_unlogin", flag);
                 }
             }
 
@@ -155,7 +162,7 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
     }
 
     //========================解除QQ绑定=====================================================================================================================================
-    private void UnbundLogin(String token, String urls,String flag) {
+    private void UnbundLogin(String token, String urls, String flag) {
         HashMap<String, String> sendCodeSign = new HashMap<>();
         sendCodeSign.put("service", urls);
         sendCodeSign.put("language", "zh_cn");
@@ -185,10 +192,10 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
                             public void run() {
                                 if (unbundQQWchatEntity.getRet() == 200) {
                                     showToast("解绑成功");
-                                    if(flag.equals("QQ")){
+                                    if (flag.equals("QQ")) {
                                         ivqq.setImageResource(R.drawable.icon_bundqq_not);
                                         tvqq.setText("未绑定");
-                                    }else {
+                                    } else {
                                         ivchat.setImageResource(R.drawable.iconbundwec_not);
                                         tvchat.setText("未绑定");
                                     }

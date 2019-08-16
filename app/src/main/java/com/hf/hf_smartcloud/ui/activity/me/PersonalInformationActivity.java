@@ -7,8 +7,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hf.hf_smartcloud.R;
 import com.hf.hf_smartcloud.base.BaseActivity;
+import com.squareup.picasso.Picasso;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -40,7 +43,7 @@ public class PersonalInformationActivity extends BaseActivity implements View.On
     private TextView nackName;//昵称用户名
 
 
-    private String pic;
+    private String pichhoto;
     private String account;
     private String nickname;
     private String sex;
@@ -55,7 +58,7 @@ public class PersonalInformationActivity extends BaseActivity implements View.On
         ButterKnife.bind(this);
         Bundle bundle = getIntent().getExtras();
         if(bundle!=null){
-            pic = bundle.getString("pic");
+            pichhoto = bundle.getString("pichhoto");
             account = bundle.getString("account");
             nickname = bundle.getString("nickname");
             sex = bundle.getString("sex");
@@ -70,13 +73,7 @@ public class PersonalInformationActivity extends BaseActivity implements View.On
         btnBack.setOnClickListener(this);//返回
         tvEditor.setOnClickListener(this);//编辑资料
         tvCityt.setText(getStringSharePreferences("city", "city"));
-//        Glide.with(PersonalInformationActivity.this)
-//                .load(pic)
-//                .placeholder(R.mipmap.icon_heard)
-//                .priority(Priority.LOW)
-//                .error(R.mipmap.icon_heard)
-//                .into(namePhoto);
-        Glide.with(PersonalInformationActivity.this).load(pic).into(namePhoto);
+        Glide.with(this).load(pichhoto).placeholder(R.mipmap.icon_heard).into(namePhoto);
 
         tvAccount.setText(account);
         tvNickname.setText(nickname);

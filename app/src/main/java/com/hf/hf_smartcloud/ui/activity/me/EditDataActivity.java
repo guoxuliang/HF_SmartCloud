@@ -44,6 +44,7 @@ import com.hf.hf_smartcloud.entity.SubmitEditorEntity;
 import com.hf.hf_smartcloud.http.HttpUtils;
 import com.hf.hf_smartcloud.http.HttpsTrustManager;
 import com.hf.hf_smartcloud.utils.SignUtil;
+import com.hf.hf_smartcloud.views.DateUtils;
 import com.hf.hf_smartcloud.weigets.BitmapFileSetting;
 import com.hf.hf_smartcloud.weigets.PhotoUtils;
 import com.hf.hf_smartcloud.weigets.ToastHelper;
@@ -125,8 +126,8 @@ public class EditDataActivity extends BaseActivity implements View.OnClickListen
     private static final int CODE_RESULT_REQUEST = 0xa2;
     private static final int CAMERA_PERMISSIONS_REQUEST_CODE = 0x03;
     private static final int STORAGE_PERMISSIONS_REQUEST_CODE = 0x04;
-    private File fileUri = new File(Environment.getExternalStorageDirectory().getPath() + "/photo.jpeg");
-    private File fileCropUri = new File(Environment.getExternalStorageDirectory().getPath() + "/crop_photo.jpeg");
+    private File fileUri = new File(Environment.getExternalStorageDirectory().getPath() + "/photo.jpg");
+    private File fileCropUri = new File(Environment.getExternalStorageDirectory().getPath() + "/crop_photo.jpg");
     private Uri imageUri;
     private Uri cropImageUri;
     private String sign = "";
@@ -136,13 +137,13 @@ public class EditDataActivity extends BaseActivity implements View.OnClickListen
     private SelectTradeEntity selectTradeEntity;
     private android.app.AlertDialog alertDialog2; //单选框
     private String[] arr;
-    private String industry;
+    private String industry="餐饮业";
 
     private String date = "";
     private SimpleDateFormat format;
     private Calendar calendar;
-    private String file;
-    private String time;
+    private String file="";
+    private String time="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,10 +199,13 @@ public class EditDataActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.btnSubmitEdit:
                 file = String.valueOf(cropImageUri);
-                String nickName = etNickname.getText().toString().trim();
+                String nickName="";  nickName= etNickname.getText().toString().trim();
 //                String timec = DateUtils2.dataOne(time);
-                String industry = etIndustry.getText().toString().trim();
-                String company = etCompany.getText().toString().trim();
+                String industry=""; industry = etIndustry.getText().toString().trim();
+                String company ="";company = etCompany.getText().toString().trim();
+                if(time==null){
+                    showToast("生日为空");
+                }
                 submitEditor(nickName, "1", time, industry, company, file);
                 Log.i("timec","timec:::"+time);
                 break;
@@ -649,6 +653,8 @@ public class EditDataActivity extends BaseActivity implements View.OnClickListen
                                             finish();
 //                                        }
 
+                                    }else {
+showToast(submitEditorEntity.getData().getMsg());
                                     }
                                 }
                             });

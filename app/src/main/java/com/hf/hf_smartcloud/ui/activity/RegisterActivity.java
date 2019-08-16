@@ -126,6 +126,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
         if (requestCode == 111 && resultCode == Activity.RESULT_OK) {
             Country country = Country.fromJson(data.getStringExtra("country"));
             iv_flag.setImageResource(country.flag);

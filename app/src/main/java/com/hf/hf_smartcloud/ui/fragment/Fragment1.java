@@ -224,7 +224,7 @@ public class Fragment1 extends BaseFragment implements View.OnClickListener {
             e.printStackTrace();
         }
     }
-    //=======================调用信任城市=============================================================================================================================================
+    //=======================调用信任城市===========================================================
     private void TrustCity(String city) {
         if(!isConnNet(getActivity())){
             showToast("请检查网络");

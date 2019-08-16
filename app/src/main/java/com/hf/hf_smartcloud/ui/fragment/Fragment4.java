@@ -1,5 +1,6 @@
 package com.hf.hf_smartcloud.ui.fragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -12,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.hf.hf_smartcloud.R;
 import com.hf.hf_smartcloud.base.BaseFragment;
@@ -34,6 +37,7 @@ import com.hf.hf_smartcloud.ui.activity.me.SecurityActivity;
 import com.hf.hf_smartcloud.ui.activity.me.SettingActivity;
 import com.hf.hf_smartcloud.ui.activity.me.SignInActivity;
 import com.hf.hf_smartcloud.utils.SignUtil;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -65,18 +69,23 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
     private QueryInfoEntity queryInfoEntity;
     private QueryInfoEntity.DataBean.ListsBean list;
 
+    //private String url = "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1209065280,459211177&fm=26&gp=0.jpg";
+    //private String url ="http://img3.imgtn.bdimg.com/it/u=4186486800,813755701&fm=26&gp=0.jpg";
     private String url = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment4, container, false);
+        Log.i("==", "onCreateView");
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.i("==", "onActivityCreated");
         initViews();
+        QueryInfo();
 
     }
 
@@ -93,7 +102,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         ll_anquan = view.findViewById(R.id.ll_anquan);
         ll_help = view.findViewById(R.id.ll_help);
         ll_setting = view.findViewById(R.id.ll_setting);
-        qiandao = view.findViewById(R.id.qiandao);
+//        qiandao = view.findViewById(R.id.qiandao);
         ll_exitLogin = view.findViewById(R.id.ll_exitLogin);
         addressList = view.findViewById(R.id.addressList);
         eye_total = view.findViewById(R.id.eye_total);
@@ -104,14 +113,6 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         tv_zhcz = view.findViewById(R.id.tv_zhcz);
         tv_fpgl = view.findViewById(R.id.tv_fpgl);
         headPhoto = view.findViewById(R.id.headPhoto);
-//                Glide.with(getActivity())
-//                        .load(url)
-//                        .placeholder(R.mipmap.icon_heard)
-//                        .priority(Priority.LOW)
-//                        .error(R.mipmap.icon_heard)
-//                        .into(headPhoto);
-                Glide.with(getActivity()).load(url).into(headPhoto);
-//            }
         tvnickName = view.findViewById(R.id.tvnickName);
         tvnickName.setText("暂无");
         ll_setting.setOnClickListener(this);
@@ -119,7 +120,7 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         ll_anquan.setOnClickListener(this);
         ll_msg.setOnClickListener(this);
         ll_my.setOnClickListener(this);
-        qiandao.setOnClickListener(this);
+//        qiandao.setOnClickListener(this);
         addressList.setOnClickListener(this);
         eye_total.setOnClickListener(this);
         tv_total.setOnClickListener(this);
@@ -129,6 +130,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         tv_zhcz.setOnClickListener(this);
         tv_fpgl.setOnClickListener(this);
         ll_exitLogin.setOnClickListener(this);
+//        Glide.with(getActivity()).load(url)
+//                .placeholder(R.drawable.ic_launcher)
+//                .error(R.drawable.ic_launcher)
+//                .into(headPhoto);
     }
 
     @Override
@@ -138,7 +143,8 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 //TODO 点击头像跳转
                 if (queryInfoEntity != null) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("pic", queryInfoEntity.getData().getLists().getPic());
+                    bundle.putString("pichhoto", queryInfoEntity.getData().getLists().getPic());
+//                    bundle.putString("pichhoto", url);
                     bundle.putString("account", queryInfoEntity.getData().getLists().getAccount());
                     bundle.putString("nickname", queryInfoEntity.getData().getLists().getNickname());
                     bundle.putString("sex", queryInfoEntity.getData().getLists().getSex());
@@ -149,10 +155,10 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                 }
 
                 break;
-            case R.id.qiandao:
-                //TODO 签到
-                openActivity(SignInActivity.class);
-                break;
+//            case R.id.qiandao:
+//                //TODO 签到
+//                openActivity(SignInActivity.class);
+//                break;
             case R.id.addressList:
                 //TODO 添加地址
                 openActivity(AddressListActivity.class);
@@ -363,23 +369,15 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
                                     //TODO 填充数据
 //                                    if(queryInfoEntity.getData().getMsg()=="success"){
                                     url = queryInfoEntity.getData().getLists().getPic();
+                                    Log.i("url", "url:" + url);
                                     String name = queryInfoEntity.getData().getLists().getNickname();
                                     list = queryInfoEntity.getData().getLists();
-                                    if (!url.equals("")) {
-                                            Glide.with(getActivity()).load(url).centerCrop().into(headPhoto);
-//                                                Glide.with(getActivity())
-//                                                        .load(url)
-//                                                        .placeholder(R.mipmap.icon_heard)
-//                                                        .priority(Priority.LOW)
-//                                                        .error(R.mipmap.icon_heard)
-//                                                        .into(headPhoto);
-
+                                    if (url != null) {
+                                        Glide.with(getActivity()).load(url).placeholder(R.mipmap.icon_heard).into(headPhoto);
                                     }
                                     if (!name.equals("")) {
                                         tvnickName.setText(queryInfoEntity.getData().getLists().getNickname());
                                     }
-//                                    }else if(queryInfoEntity.getData().getMsg()=="fail"){
-//                                    }
                                 } else {
                                     showToast(queryInfoEntity.getMsg());
                                 }
@@ -393,5 +391,47 @@ public class Fragment4 extends BaseFragment implements View.OnClickListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Log.i("==", "onAttach");
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i("==", "onCreate");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i("==", "onStop");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i("==", "onDestroyView");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("==", "onDestroy");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.i("==", "onDetach");
     }
 }

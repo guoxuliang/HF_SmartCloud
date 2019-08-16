@@ -192,7 +192,7 @@
             android:background="@drawable/bg_login_submit_lock"
             android:elevation="0dp"
             android:outlineProvider="none"
-            android:text="@string/retrieve_pwd_step_hint"
+            android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="@dimen/font_18"
             tools:targetApi="lollipop" />

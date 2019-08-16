@@ -94,6 +94,19 @@ public class QqLoginEntity {
         }
 
         public static class ErrorBean {
+            /**
+             * fail : fail
+             */
+
+            private String fail;
+
+            public String getFail() {
+                return fail;
+            }
+
+            public void setFail(String fail) {
+                this.fail = fail;
+            }
         }
 
         public static class ListsBean {

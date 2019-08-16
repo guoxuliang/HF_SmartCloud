@@ -8,15 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hf.hf_smartcloud.R;
+import com.hf.hf_smartcloud.entity.QueryAddressEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<String> datas; // 数据源
+    private List<QueryAddressEntity.DataBean.ListsBean> datas; // 数据源
     private Context context;    // 上下文Context
 
     private int normalType = 0;     // 第一种ViewType，正常的item  
@@ -27,7 +29,7 @@ public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private Handler mHandler = new Handler(Looper.getMainLooper()); //获取主线程的Handler
 
-    public AddressListAdapter(List<String> datas, Context context, boolean hasMore) {
+    public AddressListAdapter(List<QueryAddressEntity.DataBean.ListsBean> datas, Context context, boolean hasMore) {
         // 初始化变量  
         this.datas = datas;
         this.context = context;
@@ -59,17 +61,18 @@ public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     // 正常item的ViewHolder，用以缓存findView操作
     class NormalHolder extends RecyclerView.ViewHolder {
         View viewItem;
-        CheckBox cb_remember_mr;
-        TextView shrName,shrPhone,shrAddress,btn_bianji;
-
+//        CheckBox cb_remember_mr;
+        TextView shrName, shrPhone, shrAddress, btn_bianji;
+        ImageView address_default;
         public NormalHolder(View itemView) {
             super(itemView);
-            viewItem=itemView;
-            cb_remember_mr= (CheckBox) itemView.findViewById(R.id.cb_remember_mr);
-            shrName= (TextView) itemView.findViewById(R.id.shrName);
-            shrPhone= (TextView) itemView.findViewById(R.id.shrPhone);
-            shrAddress= (TextView) itemView.findViewById(R.id.shrAddress);
-            btn_bianji= (TextView) itemView.findViewById(R.id.btn_bianji);
+            viewItem = itemView;
+//            cb_remember_mr = (CheckBox) itemView.findViewById(R.id.cb_remember_mr);
+            shrName = (TextView) itemView.findViewById(R.id.shrName);
+            shrPhone = (TextView) itemView.findViewById(R.id.shrPhone);
+            shrAddress = (TextView) itemView.findViewById(R.id.shrAddress);
+            btn_bianji = (TextView) itemView.findViewById(R.id.btn_bianji);
+            address_default = (ImageView) itemView.findViewById(R.id.address_default);
         }
     }
 
@@ -97,17 +100,23 @@ public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         // 如果是正常的imte，直接设置TextView的值  
         if (holder instanceof NormalHolder) {
-
-            ((NormalHolder) holder).shrName.setText(datas.get(position));
-            ((NormalHolder) holder).shrPhone.setText(datas.get(position));
-            ((NormalHolder) holder).shrAddress.setText(datas.get(position));
-//            ((NormalHolder) holder).cb_remember_mr.setText(datas.get(position));
-//            ((NormalHolder) holder).btn_bianji.setText(datas.get(position));
+//            for (int i = 0; i < datas.size(); i++) {
+                ((NormalHolder) holder).shrName.setText(datas.get(position).getRecipients());
+                ((NormalHolder) holder).shrPhone.setText(datas.get(position).getTelephone());
+                ((NormalHolder) holder).shrAddress.setText(datas.get(position).getAddress());
+                String isture = datas.get(position).getIs_default();
+                if (isture.equals("1")) {
+//                    ((NormalHolder) holder).address_default.setImageResource(R.drawable.icon_addressdefault);
+                    ((NormalHolder) holder).address_default.setVisibility(View.VISIBLE);
+                }else {
+                    ((NormalHolder) holder).address_default.setVisibility(View.GONE);
+                }
+//            }
 
         } else {
             // 之所以要设置可见，是因为我在没有更多数据时会隐藏了这个footView  
             ((FootHolder) holder).tips.setVisibility(View.VISIBLE);
-            // 只有获取数据为空时，hasMore为false，所以当我们拉到底部时基本都会首先显示“正在加载更多...”  
+            // 只有获取数据为空时，hasMore为false，所以当我们拉到底部时基本都会首先显示“正在加载更多...
             if (hasMore == true) {
                 // 不隐藏footView提示  
                 fadeTips = false;
@@ -148,7 +157,7 @@ public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     // 暴露接口，更新数据源，并修改hasMore的值，如果有增加数据，hasMore为true，否则为false  
-    public void updateList(List<String> newDatas, boolean hasMore) {
+    public void updateList(List<QueryAddressEntity.DataBean.ListsBean> newDatas, boolean hasMore) {
         // 在原有的数据之上增加新数据  
         if (newDatas != null) {
             datas.addAll(newDatas);
@@ -156,7 +165,8 @@ public class AddressListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         this.hasMore = hasMore;
         notifyDataSetChanged();
     }
-    public void removeItem(int pos){
+
+    public void removeItem(int pos) {
         datas.remove(pos);
         notifyItemRemoved(pos);
     }

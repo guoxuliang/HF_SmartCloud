@@ -51,24 +51,22 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.6"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:textSize="20dp"
+                android:layout_gravity="left|center_vertical"
                 android:textStyle="bold"
                 android:text="头像"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/name_photo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                 />
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginLeft="190dp" />
 
         </LinearLayout>
         <View
@@ -274,11 +272,11 @@
                 android:src="@mipmap/icon_wangw"/>
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:textSize="16dp"
-                android:text="常住城市"/>
+                android:text="当前所在城市"/>
             <TextView
                 android:id="@+id/tvCityt"
                 android:layout_width="0dp"
@@ -439,43 +437,5 @@
 
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_shape_corner_white"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.2"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@mipmap/icon_wangw"/>
 
-            <TextView
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="支付密码"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:textColor="@color/hong"
-                android:drawableRight="@mipmap/icon_red_right_back"
-                android:text=""/>
-
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

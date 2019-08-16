@@ -54,13 +54,13 @@
         <!--主界面-->
         <activity
             android:name=".ui.activity.MainActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--广告过渡页面-->
         <activity
             android:name=".ui.activity.GuideActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--注册页面-->
@@ -76,86 +76,86 @@
         <!--获取验证码-->
         <activity
             android:name=".ui.activity.VerCodeActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--设置密码-->
         <activity
             android:name=".ui.activity.SetPwadActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--找回密码设置密码-->
         <activity
             android:name=".ui.activity.ReSetPwadActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--找回密码-->
         <activity
             android:name=".ui.activity.ForgetPwdActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--引导个人信息设置-->
         <activity
             android:name=".ui.activity.GuideSettingActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--报警信息-->
         <activity
             android:name=".ui.activity.main.PoliceInfoActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--异常信息-->
         <activity
             android:name=".ui.activity.main.AbnormalInfoActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--设备信息-->
         <activity
             android:name=".ui.activity.main.EquipmentLogActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--商务合作-->
         <activity
             android:name=".ui.activity.main.BusinessActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!--设备列表-->
         <activity
             android:name=".ui.activity.facility.SensorListActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--添加设备-->
         <activity
             android:name=".ui.activity.facility.AddSbActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--更换设备-->
         <activity
             android:name=".ui.activity.facility.ReplaceActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--历史监测-->
         <activity
             android:name=".ui.activity.facility.HistoryMonitoringActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--个人信息-->
         <activity
             android:name=".ui.activity.me.PersonalInformationActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--编辑资料-->
@@ -167,68 +167,68 @@
         <!--签到-->
         <activity
             android:name=".ui.activity.me.SignInActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--账单管理-->
         <activity
             android:name=".ui.activity.me.BillActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--增值购买-->
         <activity
             android:name=".ui.activity.me.PayActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!--账户充值-->
         <activity
             android:name=".ui.activity.me.AccountChargesActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--发票管理-->
         <activity
             android:name=".ui.activity.me.InvoiceActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--收获地址-->
         <activity
             android:name=".ui.activity.me.AddressListActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--消息中心-->
         <activity
             android:name=".ui.activity.me.MessageActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--安全中心-->
         <activity
             android:name=".ui.activity.me.SecurityActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--使用帮助-->
         <activity
             android:name=".ui.activity.me.HelpActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--赠票资质-->
         <activity
             android:name=".ui.activity.me.QualificationActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--设置-->
         <activity
             android:name=".ui.activity.me.SettingActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--收获地址编辑-->
@@ -240,19 +240,25 @@
         <!--关于我们-->
         <activity
             android:name=".ui.activity.me.AboutActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--设置密码-->
         <activity
             android:name=".ui.activity.me.ZfPwdActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--探头列表扫码-->
         <activity
             android:name="com.hf.hf_smartcloud.ui.zxing.QrCodeActivity"
-            android:launchMode="standard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--常驻城市-->
+        <activity
+            android:name="com.hf.hf_smartcloud.ui.activity.me.ResidentCityActivity"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <provider
@@ -275,7 +281,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="101665062" />
             </intent-filter>
         </activity>
@@ -455,7 +460,9 @@
             android:name="JPUSH_APPKEY"
             android:value="a2ff65f36b561d88c83a3ed1" /> <!--  </>值来自开发者平台取得的AppKey-->
 
-
+        <meta-data
+            android:name="com.hf.hf_smartcloud.http.OkHttpGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>

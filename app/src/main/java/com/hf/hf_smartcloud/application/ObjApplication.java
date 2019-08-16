@@ -2,11 +2,22 @@ package com.hf.hf_smartcloud.application;
 
 import android.app.Application;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.hf.hf_smartcloud.http.HttpUtils;
 import com.hf.hf_smartcloud.ui.jpush.Logger;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
+import java.io.InputStream;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+
 import cn.jpush.android.api.JPushInterface;
+import okhttp3.OkHttpClient;
 
 /**
  * Created by Administrator on 2018/7/12 0012.
@@ -19,6 +30,8 @@ public class ObjApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Logger.d(TAG, "[ExampleApplication] onCreate");
+        //让Glide能用HTTPS
+        Glide.get(this).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(getOkHttpClient()));
         super.onCreate();
         registerToWX();
 
@@ -42,5 +55,23 @@ public class ObjApplication extends Application {
 
     public static ObjApplication getInstance() {
         return sInstance;
+    }
+    /**
+     * 获取OkHttpClient
+     * 设置允许HTTPS
+     * */
+    public static OkHttpClient getOkHttpClient(InputStream... certificates)
+    {
+        SSLSocketFactory sslSocketFactory = HttpUtils.getSslSocketFactory(certificates, null, null);
+        OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+        builder = builder.sslSocketFactory(sslSocketFactory);
+        builder.hostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session)
+            {
+                return true;
+            }
+        });
+        return builder.build();
     }
 }
