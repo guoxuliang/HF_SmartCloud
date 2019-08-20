@@ -51,6 +51,10 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
     LinearLayout wechartnotLogin;
     @BindView(R.id.resident_city)
     LinearLayout residentCity;
+    @BindView(R.id.logindev)
+    LinearLayout logindev;
+    @BindView(R.id.reloginpwd)
+    LinearLayout reloginpwd;
 
     private String qq = "";
     private String wechat = "";
@@ -85,6 +89,8 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
         wechartnotLogin.setOnClickListener(this);
         llZfpwd.setOnClickListener(this);
         residentCity.setOnClickListener(this);
+        logindev.setOnClickListener(this);
+        reloginpwd.setOnClickListener(this);
 
     }
 
@@ -134,6 +140,14 @@ public class SecurityActivity extends BaseActivity implements View.OnClickListen
             case R.id.resident_city:
                 //TODO  常驻城市
                 openActivity(ResidentCityActivity.class);
+                break;
+            case R.id.logindev:
+                //TODO  登录设备列表
+                openActivity(LoginDevListActivity.class);
+                break;
+            case R.id.reloginpwd:
+                //TODO  修改登录密码
+                openActivity(ReLoginpwdActivity.class);
                 break;
         }
     }
