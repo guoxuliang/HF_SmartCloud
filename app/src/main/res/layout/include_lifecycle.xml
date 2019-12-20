@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_shape_corner_white_list"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:text="生命周期"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.hf.hf_smartcloud.utils.xiaomiClock
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+        <com.hf.hf_smartcloud.utils.NewClock
+            android:id="@+id/clock_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:mClockRingWidth="4dp"
+            app:mDefaultWidth="1dp"
+            app:mDefaultLength="8dp"
+            app:mSpecialWidth="2dp"
+            app:mSpecialLength="14dp"
+            app:mHWidth="6dp"
+            android:layout_centerInParent="true"
+            app:mMWidth="4dp"
+            app:mSWidth="2dp"
+            app:mCircleColor="@android:color/holo_red_light"
+            app:mHColor="@android:color/black"
+            app:mMColor="@android:color/black"
+            app:mSColor="@android:color/holo_red_light"
+            app:mNumColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.hf.hf_smartcloud.utils.NewClock2
+            android:id="@+id/clock_view2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:mClockRingWidth="4dp"
+            app:mDefaultWidth="1dp"
+            app:mDefaultLength="8dp"
+            app:mSpecialWidth="2dp"
+            app:mSpecialLength="14dp"
+            app:mHWidth="6dp"
+            android:layout_centerInParent="true"
+            app:mMWidth="4dp"
+            app:mSWidth="2dp"
+            app:mCircleColor="@android:color/holo_red_light"
+            app:mHColor="@android:color/black"
+            app:mMColor="@android:color/black"
+            app:mSColor="@android:color/holo_red_light"
+            app:mNumColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备已运行"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                android:text="369天20时36分10秒"/>
+        </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>
