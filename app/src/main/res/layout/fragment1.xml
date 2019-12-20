@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_line_color"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -11,166 +11,360 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/icon_sy_bg"
         android:orientation="vertical">
-    <!--标题布局-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:visibility="invisible"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="这是标题"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <!--图标进度条-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:orientation="vertical">
+        <!--标题布局-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal">
-        <EditText
-            android:id="@+id/et"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="0.6"/>
-        <Button
-            android:id="@+id/bt"
-            android:text="动画进度"
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp"
+            android:background="@color/mainzise"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/icon_loction"
+                android:gravity="center_vertical"
+                android:text="金花路二厂"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/mainsetting"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:src="@drawable/icon_main_setting"
+                android:text="这是标题"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
         </LinearLayout>
-        <RelativeLayout
-            android:id="@+id/rlchart"
-            android:layout_width="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center"
-            android:paddingBottom="20dp"
-            android:layout_height="wrap_content">
-            <com.hf.hf_smartcloud.weigets.chart.WaveView
-                android:id="@+id/wave"
-                android:layout_width="200dp"
-                android:layout_height="200dp" />
-            <com.hf.hf_smartcloud.weigets.chart.CircleProgressView
-                android:id="@+id/circle_progress"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:progressDrawable="@drawable/my_progressbar"
-                app:progress_width="10dp" />
-        </RelativeLayout>
+        <!--图标进度条-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/et"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.6" />
+
+                <Button
+                    android:id="@+id/bt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="动画进度" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlchart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <com.hf.hf_smartcloud.weigets.chart.WaveView
+                    android:id="@+id/wave"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true" />
+
+                <com.hf.hf_smartcloud.weigets.CircleGradientProgressView
+                    android:id="@+id/circle_progress"
+                    android:layout_width="260dp"
+                    android:layout_height="260dp"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/my_progressbar"
+                    app:progress_width="10dp" />
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_shape_corner_white"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-<LinearLayout
-    android:id="@+id/ll_policeinfo"
-    android:layout_width="0dp"
-    android:layout_weight="1"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:orientation="vertical">
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:src="@mipmap/icon_bjinfo"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="5dp"
-        android:text="报警信息"/>
-</LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_abnormal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
-        android:gravity="center"
-        android:padding="10dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/icon_ycinfo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="5dp"
-            android:text="异常信息" />
-    </LinearLayout>
-</LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_policeinfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_shape_corner_whiteyy"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_baojing" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="报警信息" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="设备报警，请及时处理"
+                        android:textColor="@color/mainzise"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="15"
+                        android:textColor="@color/zitizise"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_notbaojing"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_abnormal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_shape_corner_whiteyy"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_yichangxiaoxi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="异常数据" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="系统无异常,运行良好"
+                        android:textColor="@color/mainzise"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="15"
+                        android:textColor="@color/zitizise"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_notbaojing"
+                        android:visibility="visible" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:id="@+id/ll_equipment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/icon_sbrz_bg"/>
-                <TextView
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_shape_corner_whiteyy"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingTop="5dp"
-                    android:text="设备日志"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_shebeixiaoxi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="设备推送" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="您有推送消息,请查收"
+                        android:textColor="@color/mainzise"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="10"
+                        android:textColor="@color/zitizise"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_notbaojing"
+                        android:visibility="gone" />
+                </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/business"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:padding="10dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/icon_swhz_bg"/>
-                <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_shape_corner_whiteyy"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingTop="5dp"
-                    android:text="商务合作"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_xitongxinxi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="系统消息" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="系统消息,请查收"
+                        android:textColor="@color/mainzise"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="5"
+                        android:textColor="@color/zitizise"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_notbaojing"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_jingyong"
+                        android:visibility="gone" />
+                </RelativeLayout>
             </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

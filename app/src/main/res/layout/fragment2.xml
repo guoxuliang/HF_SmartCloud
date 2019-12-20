@@ -1,147 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment2"
     android:layout_width="match_parent"
-    android:id="@+id/f2"
     android:layout_height="match_parent"
+    android:background="@color/mainzise"
     android:orientation="vertical">
-        <com.hf.hf_smartcloud.weigets.PullToZoomScrollView
-            android:id="@+id/scroll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginLeft="20dp"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainzise"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@android:color/white">
+
+        <ImageView
+            android:id="@+id/toolbar_titleAdd_dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:paddingTop="10dp"
-            android:gravity="center"
-            android:background="@drawable/bg_shape_corner_info"
-            android:orientation="vertical">
+            android:src="@drawable/icon_adddevice" />
+    </android.support.v7.widget.Toolbar>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="传感器数量"
-                            android:drawableRight="@mipmap/icon_down"
-                            android:textColor="@color/white" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="168"
-                            android:textSize="36sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white" />
-                </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icon_shebeicount"
+                android:text="设备总数"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="325"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/bg_shape_corner_white"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_addsb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/icon_smxx"
-                    android:gravity="center"
-                    android:text="添加设备" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:drawableTop="@mipmap/icon_wddd"
-                    android:gravity="center"
-                    android:text="删除设备"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/tv_replace"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/icon_cheak"
-                    android:gravity="center"
-                    android:text="更换设备" />
-
-                <TextView
-                    android:id="@+id/tv_history"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/icon_cengji_o"
-                    android:gravity="center"
-                    android:text="历史监测" />
-
-            </LinearLayout>
         <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icon_offlinecount"
+                android:text="在线数量"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="280"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/icon_inlinecount"
+                android:text="离线数量"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="45"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_shape_corner_white_devfragment"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/fgradiogroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/bg_shape_corner_white"
-            android:orientation="vertical">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="设备列表"
-    android:textStyle="bold"
-    android:layout_margin="5dp"
-    android:textSize="16sp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_shape_corner_white_zise"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/fgrbMain"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_shape_corner_white_zise"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/icon_kongzhigui"
+                android:gravity="center"
+                android:text="控制柜"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/fgrbEquipment"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_shape_corner_white_zise"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_bianxieshi"
+                android:gravity="center"
+                android:text="壁挂式"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
 
+            <RadioButton
+                android:id="@+id/fgrbTimer"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_shape_corner_white_zise"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_biguashi"
+                android:gravity="center"
+                android:text="便携"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
+            <RadioButton
+                android:id="@+id/fgrbMe"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_shape_corner_white_zise"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_fenzu"
+                android:gravity="center"
+                android:text="分组"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-                <include
-                    layout="@layout/facility_item"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="120dp" />
+        </RadioGroup>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fgviewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+             />
 
-                <include
-                    layout="@layout/facility_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:visibility="gone"
-                    android:layout_marginTop="20dp" />
+    </LinearLayout>
 
-
-        </LinearLayout>
-            <!--<android.support.v4.widget.SwipeRefreshLayout-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:id="@+id/swipesbfragment">-->
-                <android.support.v7.widget.RecyclerView
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:id="@+id/recyclersbfragment"/>
-            <!--</android.support.v4.widget.SwipeRefreshLayout>-->
-</LinearLayout>
-        </com.hf.hf_smartcloud.weigets.PullToZoomScrollView>
 </LinearLayout>

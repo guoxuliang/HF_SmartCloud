@@ -143,6 +143,63 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
 
+    <style name="mycheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/photo_move_stu_selector</item>
+    </style>
+    <style name="DialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item> <!--设置dialog的背景，此处为系统给定的透明值-->
+        <item name="android:windowFrame">@null</item>                <!--Dialog的windowFrame框为无-->
+        <item name="android:windowNoTitle">true</item>　　　　　　　　 <!--是否显示标题-->
+        <item name="android:windowIsFloating">true</item>            <!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item>         <!--是否半透明-->
+        <item name="android:windowContentOverlay">@null</item>       <!--是否有覆盖-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 倒计时控件属性 -->
+    <declare-styleable name="CountDownView">
+        <!--颜色-->
+        <attr name="ringColor" format="color" />
+        <!-- 进度文本的字体大小 -->
+        <attr name="progressTextSize" format="dimension" />
+        <!-- 圆环宽度 -->
+        <attr name="ringWidth" format="float" />
+        <!--进度文本颜色-->
+        <attr name="progressTextColor" format="color"/>
+        <!--倒计时-->
+        <attr name="countdownTime" format="integer"/>
+    </declare-styleable>
+
+    <!--自定义dialog背景全透明无边框theme -->
+    <style name="MyDialogone" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="CustomDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 
 </resources>

@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,6 +26,10 @@ import com.hf.hf_smartcloud.ui.fragment.Fragment1;
 import com.hf.hf_smartcloud.ui.fragment.Fragment2;
 import com.hf.hf_smartcloud.ui.fragment.Fragment3;
 import com.hf.hf_smartcloud.ui.fragment.Fragment4;
+import com.hf.hf_smartcloud.ui.fragment.FragmentTwoSun1;
+import com.hf.hf_smartcloud.ui.fragment.FragmentTwoSun2;
+import com.hf.hf_smartcloud.ui.fragment.FragmentTwoSun3;
+import com.hf.hf_smartcloud.ui.fragment.FragmentTwoSun4;
 import com.hf.hf_smartcloud.ui.jpush.ExampleUtil;
 import com.hf.hf_smartcloud.ui.jpush.LocalBroadcastManager;
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -51,13 +57,17 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        //设置当前窗体为全屏显示
+        getWindow().setFlags(flag, flag);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(0xb4a4F7);
+        }
         initView();
         //初始化ViewPager
         initViewPager();
-        init();
         jpush();
         init();
-//        initgetPermissions();
 
     }
 
@@ -73,6 +83,7 @@ public class MainActivity extends BaseActivity {
 //        JPushInterface.stopPush(getApplicationContext());
         registerMessageReceiver(); // used for receive msg
     }
+
     private void initView(){
         mPager=(ViewPager)findViewById(R.id.viewPager);
         mGroup=(RadioGroup)findViewById(R.id.radiogroup);
@@ -84,6 +95,7 @@ public class MainActivity extends BaseActivity {
         mGroup.setOnCheckedChangeListener(new myCheckChangeListener());
         mPager .setOffscreenPageLimit(4);
     }
+
     private void initViewPager(){
         fragment1=new Fragment1();
         fragment2=new Fragment2();
@@ -221,14 +233,62 @@ public class MainActivity extends BaseActivity {
 //        }
     }
 
-
-
-
-
     @Override
     protected void onResume() {
         isForeground = true;
         super.onResume();
+        int id = getIntent().getIntExtra("id", 0);
+        if (id == 1) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment1,new Fragment1())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==2){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment2,new Fragment2())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==3){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment3,new Fragment3())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==4){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment4,new Fragment4())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==5){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fsun1,new FragmentTwoSun1())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==6){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fsun2,new FragmentTwoSun2())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(id==7){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fsun3,new FragmentTwoSun3())
+                    .addToBackStack(null)
+                    .commit();
+            showToast("跳转回来了");
+        }else if(id==8){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fsun4,new FragmentTwoSun4())
+                    .addToBackStack(null)
+                    .commit();
+        }
+
     }
 
 
@@ -280,28 +340,4 @@ public class MainActivity extends BaseActivity {
         String version = packInfo.versionName;
         return version;
     }
-
-
-
-//    private void initgetPermissions() {
-//        RxPermissions rxPermissions = new RxPermissions(this);
-//        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                Manifest.permission.READ_EXTERNAL_STORAGE,
-//                Manifest.permission.READ_PHONE_STATE)
-//                .subscribe(new Observer<Boolean>() {
-//                    @Override
-//                    public void onNext(Boolean aBoolean) {
-//                    }
-//
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//                });
-//    }
 }

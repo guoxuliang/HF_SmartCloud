@@ -32,12 +32,22 @@
 
     <uses-permission android:name="android.permission.READ_LOGS" />
 
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--读取系统信息，包含系统版本等信息，用作统计-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
+        android:name=".application.ObjApplication"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
@@ -109,6 +119,12 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--首页设置-->
+        <activity
+            android:name=".ui.activity.main.MainSettingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--异常信息-->
         <activity
             android:name=".ui.activity.main.AbnormalInfoActivity"
@@ -121,6 +137,77 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--蓝牙便携设备-->
+        <activity
+            android:name=".ui.activity.facility.BlePorDevActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--蓝牙便携设备设置-->
+        <activity
+            android:name=".ui.activity.facility.DeviceSettingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--蓝牙传感器详情-->
+        <activity
+            android:name=".ui.activity.facility.GasSettingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--蓝牙搜索便携设备-->
+        <activity
+            android:name=".ui.activity.facility.SearchDeviceActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <!--连接方式选择界面【蓝牙，扫一扫】-->
+        <activity
+            android:name=".ui.activity.facility.SelectorLinkTypeActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--水波纹搜索页面-->
+        <activity
+            android:name=".ui.activity.facility.BluetoothSearchActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <!--搜索完成窗口界面【窗口】-->
+        <activity
+            android:name=".ui.activity.facility.SearchDeviceOkActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+
+        <!--清零标定【窗口】-->
+        <activity
+            android:name=".ui.activity.facility.ResetAimingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogTheme"/>
+
+        <!--清零标定【窗口】-->
+        <activity
+            android:name=".ui.activity.facility.MmolAimingActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogTheme"/>
+
+        <!--蓝牙便携详情-->
+        <activity
+            android:name=".ui.activity.facility.PortableDetailsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <!--商务合作-->
         <activity
             android:name=".ui.activity.main.BusinessActivity"
@@ -134,11 +221,34 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--设备详情-->
+        <activity
+            android:name=".ui.activity.facility.DevicesDetailsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--便携设备详情-->
+        <activity
+            android:name=".ui.activity.facility.DevicesPortableDetailsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <!--添加设备-->
         <activity
             android:name=".ui.activity.facility.AddSbActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--从机设备-->
+        <activity
+            android:name=".ui.activity.facility.SearchingUnitActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--更换设备-->
         <activity
@@ -246,7 +356,7 @@
         <!--设置密码-->
         <activity
             android:name=".ui.activity.me.ZfPwdActivity"
-            android:launchMode="singleInstance"
+            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--探头列表扫码-->
@@ -268,7 +378,12 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
+        <!--添加信任-->
+        <activity
+            android:name="com.hf.hf_smartcloud.ui.activity.me.AddArustActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--修改登陆密码-->
         <activity
             android:name="com.hf.hf_smartcloud.ui.activity.me.ReLoginpwdActivity"
@@ -477,6 +592,14 @@
         <meta-data
             android:name="com.hf.hf_smartcloud.http.OkHttpGlideModule"
             android:value="GlideModule" />
-    </application>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="rmfzBSsoy1vP2D1uVle1mIlRzAeteKMK" />
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
+</application>
 
 </manifest>

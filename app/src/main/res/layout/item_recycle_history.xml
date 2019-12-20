@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shape_corner_white_list"
+    android:gravity="center"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="10dp"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="0dp" android:layout_weight="0.1"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dianl"/>
+<TextView
+    android:id="@+id/chaunganqi"
+    android:layout_width="0dp" android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:text="02:30"/>
+    <TextView
+        android:id="@+id/leixing"
+        android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="wrap_content" android:gravity="center"
+        android:layout_below="@+id/chaunganqi"
+        android:layout_centerInParent="true"
+        android:textColor="@color/zitizise"
+        android:text="周一周二周三周四周五"/>
+    <TextView
+        android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="wrap_content" android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="动作"/>
+    <com.hf.hf_smartcloud.weigets.SwitchButton
+        android:id="@+id/switchButton"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        app:borderWidth="0.8dp"
+        app:offBorderColor="@color/gray"
+        app:offColor="@color/white"
+        app:onColor="@color/zitizise"
+        app:spotColor="@color/white"
+        app:animate="true"
+        android:layout_margin="20dp" />
+</LinearLayout>
+</RelativeLayout>

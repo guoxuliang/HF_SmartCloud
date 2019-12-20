@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/gray"
+        android:background="@color/mainzise"
         android:gravity="center_vertical"
         android:visibility="visible">
 
@@ -17,7 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="设置"
+                android:visibility="gone"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
             <ImageView
                 android:id="@+id/btn_back"
                 android:layout_width="0dp"
@@ -25,7 +36,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="0.1"
                 android:layout_gravity="center"
-                android:src="@drawable/icon_backb" />
+                android:src="@drawable/icon_backb"
+                android:visibility="visible"/>
 
             <TextView
                 android:id="@+id/tv_title"
@@ -35,19 +47,20 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="地址编辑"
+                android:text="设置"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvBj"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_weight="0.3"
-                android:text="收货地址"
+                android:layout_weight="0.2"
+                android:text="编辑"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/btn_add"
@@ -66,7 +79,7 @@
                 android:layout_weight="0.1"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/icon_sancode"
-                android:visibility="invisible" />
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

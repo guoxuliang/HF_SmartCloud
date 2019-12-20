@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="#cccccc"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    android:id="@+id/fragment3"
+    >
 
     <TextView
         android:id="@+id/nodata"

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,9 @@ public class AddaddressActivity extends BaseActivity implements View.OnClickList
     private int[] i;
     private TextView tvdizhi;
     private TextView tv_AddCountyCode;
+    private TextView address_country_code_text;
+    private ImageView address_iv_flag;
+private LinearLayout llccode;
 
     private String sign = "";
     private String token = "";
@@ -107,9 +111,13 @@ public class AddaddressActivity extends BaseActivity implements View.OnClickList
     }
 
     private void initView() {
+        llccode = findviewByid(R.id.llccode);
+        address_country_code_text = findviewByid(R.id.address_country_code_text);
+        address_iv_flag = findviewByid(R.id.address_iv_flag);
         llview = findViewById(R.id.lladdressadd);
         tvdizhi = findViewById(R.id.shr_dizhi);
         llview.setOnClickListener(this);
+        llccode.setOnClickListener(this);
         tv_AddCountyCode = findviewByid(R.id.tv_AddCountyCode);
         tv_AddCountyCode.setOnClickListener(this);
         lladdressadd = findviewByid(R.id.lladdressadd);
@@ -140,6 +148,12 @@ public class AddaddressActivity extends BaseActivity implements View.OnClickList
                 finish();
             }
         });
+
+        String countrycodeStr = tv_AddCountyCode.getText().toString().trim();
+        if (countrycodeStr.equals("+86")) {
+            address_iv_flag.setImageResource(R.drawable.flag_cn);
+            address_country_code_text.setText("中国");
+        }
     }
 
     private String getCityJson() {
@@ -298,7 +312,10 @@ public class AddaddressActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_AddCountyCode:
+//            case R.id.tv_AddCountyCode:
+//                startActivityForResult(new Intent(getApplicationContext(), PickActivity.class), 111);
+//                break;
+            case R.id.llccode:
                 startActivityForResult(new Intent(getApplicationContext(), PickActivity.class), 111);
                 break;
             case R.id.add_submit:
@@ -367,11 +384,13 @@ public class AddaddressActivity extends BaseActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.i("requestCode:::", "requestCode::" + requestCode + "resultCode:::" + resultCode + "data:::" + data.toString());
-        if (data != null && data.equals("")) {
+        if (data != null && !data.equals("")) {
             //国家码回调
             if (requestCode == 111 && resultCode == Activity.RESULT_OK) {
                 Country country = Country.fromJson(data.getStringExtra("country"));
                 tv_AddCountyCode.setText("+" + country.code);
+                address_iv_flag.setImageResource(country.flag);
+                address_country_code_text.setText(country.name);
                 String countrycode = String.valueOf(country.code);
                 if (!countrycode.equals("86")) {
                     lladdressadd.setVisibility(View.GONE);

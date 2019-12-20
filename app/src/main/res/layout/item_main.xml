@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#cccccc"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_shape_corner_white"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.hf.hf_smartcloud.utils.iconview.CircleTextImage
+                    android:id="@+id/circleTextImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <TextView
+                android:id="@+id/qiti"
+                android:layout_width="0dp" android:layout_weight="2"
+                android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                android:text="可燃气" />
+                <TextView
+                    android:id="@+id/baojing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/icon_zc_bg"
+                    android:text="超标"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nongdu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25.6℃"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/onepolice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="10%VOL"
+                    android:drawableLeft="@drawable/icon_one_bg"
+                    android:drawablePadding="5dp"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/twopolice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="10%VOL"
+                    android:drawableLeft="@drawable/icon_two_bg"
+                    android:drawablePadding="5dp"
+                    android:textSize="12sp" />
+
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:drawableLeft="@drawable/icon_zc_bg"-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_shape_corner_white"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="10dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/qiti2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="硫化氢" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nongdu2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="25.6℃"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing2"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_shape_corner_white"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="10dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/qiti3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="氧气" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nongdu3"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="25.6℃"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing3"-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_shape_corner_white"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="10dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/qiti4"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="一氧化碳" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nongdu4"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="25.6℃"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing4"-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_shape_corner_white"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="10dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/qiti5"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="二氧化碳" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nongdu5"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="25.6℃"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing5"-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/bg_shape_corner_white"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="10dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/qiti6"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="乙烯" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nongdu6"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="25.6℃"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="10%VOL"-->
+                    <!--android:textSize="8dp" />-->
+                <!--<TextView-->
+                    <!--android:id="@+id/baojing6"-->
+                    <!--android:layout_width="0dp" android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="超标"-->
+                    <!--android:textSize="8dp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+</LinearLayout>

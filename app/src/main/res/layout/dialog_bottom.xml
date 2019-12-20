@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical" 
+     >
+    <ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/gray"/>
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_bottom_custom_dialog"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/negativeButton"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimary"
+            android:background="@mipmap/none_bg"
+            android:layout_weight="1"
+            android:singleLine="true" 
+            android:text="@string/cancel_str"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+            <ImageView 
+                android:layout_width="1dp"
+                android:layout_height="37dp"
+                android:background="@color/gray"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:id="@+id/dialog_line_img"/>
+        <Button
+            android:id="@+id/positiveButton"
+            android:layout_width="0dip"
+            android:background="@mipmap/none_bg"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="1"
+            android:singleLine="true" 
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/confirm_str"/>
+    </LinearLayout>  
+</LinearLayout>

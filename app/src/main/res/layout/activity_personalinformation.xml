@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:visibility="visible"
+        android:background="@color/chengse"
         android:gravity="center_vertical">
 
         <ImageView
@@ -36,7 +37,8 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="120dp"
             android:text="编辑资料"
-            android:textColor="@color/hong"
+
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
 

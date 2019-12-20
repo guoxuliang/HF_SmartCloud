@@ -60,6 +60,7 @@ public class ResidentCityActivity extends BaseActivity implements SwipeRefreshLa
     private String sign = "";
     private String token = "";
     private Gson gson = new Gson();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,7 @@ public class ResidentCityActivity extends BaseActivity implements SwipeRefreshLa
         initViews();
         residentCityList();
     }
+
     private void initTitle() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +79,18 @@ public class ResidentCityActivity extends BaseActivity implements SwipeRefreshLa
             }
         });
         tvTitle.setText("常驻城市列表");
-        btnAdd.setVisibility(View.GONE);
+        btnAdd.setVisibility(View.VISIBLE);
         btnSancode.setVisibility(View.GONE);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("flag", "cityNmae");
+                openActivity(AddArustActivity.class, bundle);
+            }
+        });
     }
+
     private void initViews() {
         swipecityList = findViewById(R.id.swipecityList);
         recyclercityList = findViewById(R.id.recyclercityList);
@@ -164,6 +175,7 @@ public class ResidentCityActivity extends BaseActivity implements SwipeRefreshLa
             adapter.updateList(null, false);
         }
     }
+
     @Override
     public void onRefresh() {
         swipecityList.setRefreshing(true);
@@ -177,61 +189,62 @@ public class ResidentCityActivity extends BaseActivity implements SwipeRefreshLa
         }, 1000);
     }
     //=====================================
+
     /**
      * 常驻城市列表
      */
-    private void residentCityList(){
-            if (!isConnNet(this)) {
-                showToast("请检查网络");
-                return;
-            }
-            HashMap<String, String> sendCodeSign = new HashMap<>();
-            sendCodeSign.put("service", "Customer.Safe.City_list");
-            sendCodeSign.put("language", "zh_cn");
-            sendCodeSign.put("token", getStringSharePreferences("token", "token"));
+    private void residentCityList() {
+        if (!isConnNet(this)) {
+            showToast("请检查网络");
+            return;
+        }
+        HashMap<String, String> sendCodeSign = new HashMap<>();
+        sendCodeSign.put("service", "Customer.Safe.City_list");
+        sendCodeSign.put("language", "zh_cn");
+        sendCodeSign.put("token", getStringSharePreferences("token", "token"));
 
-            sign = SignUtil.Sign(sendCodeSign);
-            try {
-                Map<String, String> map = new HashMap<>();
-                map.put("service", "Customer.Safe.City_list");
-                map.put("language", "zh_cn");
-                map.put("token", getStringSharePreferences("token", "token"));
-                map.put("sign", sign);
+        sign = SignUtil.Sign(sendCodeSign);
+        try {
+            Map<String, String> map = new HashMap<>();
+            map.put("service", "Customer.Safe.City_list");
+            map.put("language", "zh_cn");
+            map.put("token", getStringSharePreferences("token", "token"));
+            map.put("sign", sign);
 
-                HttpUtils.doPost(Constants.SERVER_BASE_URL + "service=Customer.Safe.City_list", map, new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.i("错误", "错误：" + e);
-                    }
+            HttpUtils.doPost(Constants.SERVER_BASE_URL + "service=Customer.Safe.City_list", map, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.i("错误", "错误：" + e);
+                }
 
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        try {
-                            String result = response.body().string();
-                            Log.i("result-residentCityList", "result-residentCityList:" + result);
-                            cityListEntity = gson.fromJson(result, CityListEntity.class);
-                           ResidentCityActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (cityListEntity.getRet() == 200) {
-                                        showToast(cityListEntity.getData().getMsg());
-                                        lists = cityListEntity.getData().getLists();
-                                        initRefreshLayout();
-                                        initRecyclerView(lists);
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try {
+                        String result = response.body().string();
+                        Log.i("result-residentCityList", "result-residentCityList:" + result);
+                        cityListEntity = gson.fromJson(result, CityListEntity.class);
+                        ResidentCityActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (cityListEntity.getRet() == 200) {
+                                    showToast(cityListEntity.getData().getMsg());
+                                    lists = cityListEntity.getData().getLists();
+                                    initRefreshLayout();
+                                    initRecyclerView(lists);
 //                                    }
 
-                                    } else {
-                                        showToast(cityListEntity.getMsg());
-                                    }
+                                } else {
+                                    showToast(cityListEntity.getMsg());
                                 }
-                            });
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                            }
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 }

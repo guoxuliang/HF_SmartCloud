@@ -49,5 +49,16 @@
 
     <string name="china">china</string>
 
+    <string name="cancel_str">取消</string>
+    <string name="confirm_str">确定</string>
+    <string name="remind_str">提示</string>
+    <string name="remind_scaning_dev">正在扫描设备...</string>
+    <string name="remind_scaning_dev_stop">停止扫描</string>
+    <string name="scan_txt">扫描</string>
+    <string name="scan_dev_txt">扫描设备</string>
+    <string name="scan_no_dev">没有扫描到设备</string>
 
+    <string name="ble_not_supported">你的手机不支持BLE</string>
+    <string name="error_bluetooth_not_supported">你的手机不支持蓝牙</string>
+    <string name="unknown_device">未知设备</string>
 </resources>

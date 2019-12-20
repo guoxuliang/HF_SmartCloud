@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_shape_corner_whiteyy"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp" android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.hf.hf_smartcloud.utils.iconview.CircleTextImage
+                    android:id="@+id/circleTextImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/icon_sixandone"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_blelink" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"></LinearLayout>
+
+            <TextView
+                android:id="@+id/tvdeviceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XX的检测仪"
+                android:textColor="@color/zitizise"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/macstr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="34:B1:F7:D0:50:27"
+                android:textColor="@color/gray"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

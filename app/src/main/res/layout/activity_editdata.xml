@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:visibility="visible"
+        android:background="@color/chengse"
         android:gravity="center_vertical">
 
         <ImageView

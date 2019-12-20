@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/f2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainzise"
+    android:orientation="vertical">
+    <include layout="@layout/layout_title"/>
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainzise"
+        android:orientation="horizontal"
+         >
+        <android.support.v7.widget.SearchView
+            android:id="@+id/serachview"
+            android:layout_width="0dp" android:layout_weight="0.7"
+            android:layout_height="30dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_margin="10dp"
+            app:queryHint="输入设备名称或编号"
+            app:iconifiedByDefault="false" />
+        <ImageView
+            android:layout_width="0dp" android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:src="@drawable/icon_paixu"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="探头总数"
+                android:drawableTop="@drawable/icon_shebeicount"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="325"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线数量"
+                android:drawableTop="@drawable/icon_offlinecount"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="280" android:paddingLeft="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="离线数量"
+                android:drawableTop="@drawable/icon_inlinecount"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45" android:paddingLeft="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_shape_corner_white_devfragment"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        >
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_shape_corner_white_zise"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMain"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_shape_corner_white_zise"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/icon_kongzhigui"
+                android:gravity="center"
+                android:text="控制柜"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <RadioButton
+                android:id="@+id/rbEquipment"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_bianxieshi"
+                android:gravity="center"
+                android:text="壁挂式"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/bg_shape_corner_white_zise" />
+
+
+            <RadioButton
+                android:id="@+id/rbTimer"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_biguashi"
+                android:gravity="center"
+                android:text="便携"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_shape_corner_white_zise" />
+            <RadioButton
+                android:id="@+id/rbMe"
+                style="@style/style_RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/icon_fenzu"
+                android:gravity="center"
+                android:text="分组"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_shape_corner_white_zise" />
+
+        </RadioGroup>
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout_sun"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_sun"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

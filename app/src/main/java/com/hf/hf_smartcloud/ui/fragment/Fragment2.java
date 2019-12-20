@@ -1,201 +1,267 @@
 package com.hf.hf_smartcloud.ui.fragment;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hf.hf_smartcloud.R;
-import com.hf.hf_smartcloud.adapter.FacilityFAdapter;
+import com.hf.hf_smartcloud.adapter.myFragmentPagerAdapter;
 import com.hf.hf_smartcloud.base.BaseFragment;
-import com.hf.hf_smartcloud.ui.activity.facility.AddSbActivity;
-import com.hf.hf_smartcloud.ui.activity.facility.HistoryMonitoringActivity;
-import com.hf.hf_smartcloud.ui.activity.facility.ReplaceActivity;
-import com.hf.hf_smartcloud.ui.activity.facility.SensorListActivity;
-import com.hf.hf_smartcloud.utils.RecyclerItemClickListener;
+import com.hf.hf_smartcloud.bean.UserEvent;
+import com.hf.hf_smartcloud.ui.activity.facility.SearchDeviceActivity;
+import com.hf.hf_smartcloud.ui.activity.facility.SelectorLinkTypeActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Fragment2 extends BaseFragment implements View.OnClickListener {
-    View view;
-private LinearLayout layout_cgq;
-private TextView tv_addsb,tv_replace,tv_history;
+    public FragmentTwoSun1 fg1;
+    public FragmentTwoSun2 fg2;
+    public FragmentTwoSun3 fg3;
+    public FragmentTwoSun4 fg4;
+    View view, inflate;
+    RadioGroup fgradiogroup;
+    private Toolbar toolbar;
+    //POPwindow===================================
+    private RadioButton fgrbMain, fgrbEquipment, fgrbTimer, fgrbMe;
+    private ArrayList<Fragment> fragmentSunList;
+    private ViewPager mPagerSun;
+    //======================
+    private ImageView imageView;
+    private TextView one;
+    private TextView two;
+    private TextView three;
+    private PopupWindow popupWindow;
+    private int flag = 0;
 
-    private final int PAGE_COUNT = 10;
-    private SwipeRefreshLayout swipesbfragment;
-    private RecyclerView recyclersbfragment;
-    private List<String> list;
-    private int lastVisibleItem = 0;
-    private GridLayoutManager mLayoutManager;
-    private FacilityFAdapter adapter;
-    private Handler mHandler = new Handler(Looper.getMainLooper());
+    String dev_name,mac_addr,char_uuid;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         view = inflater.inflate(R.layout.fragment2, container, false);
+        inflate = LayoutInflater.from(getActivity()).inflate(R.layout.pop, null, false);
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        inirViews();
-        layout_cgq = view.findViewById(R.id.layout_cgq);
-        layout_cgq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity(SensorListActivity.class);
-            }
-        });
-        findView();
-        initData();
-//        initRefreshLayout();
-        initRecyclerView();
+        initVeiws();
+        initPopWindow();
+        //初始化ViewPager
+        initfgViewPager();
     }
 
-    private void inirViews() {
-        tv_addsb = view.findViewById(R.id.tv_addsb);
-        tv_replace = view.findViewById(R.id.tv_replace);
-        tv_history = view.findViewById(R.id.tv_history);
-        tv_addsb.setOnClickListener(this);
-        tv_replace.setOnClickListener(this);
-        tv_history.setOnClickListener(this);
+    private void initPopWindow() {
+        popupWindow = new PopupWindow(inflate, 200, 258, true);
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.a));
+        popupWindow.setFocusable(false);
+        one = inflate.findViewById(R.id.one);
+        two = inflate.findViewById(R.id.two);
+        three = inflate.findViewById(R.id.three);
+        one.setOnClickListener(this);
+        two.setOnClickListener(this);
+        three.setOnClickListener(this);
+
+    }
+
+    private void initVeiws() {
+        mPagerSun = view.findViewById(R.id.fgviewPager);
+        fgradiogroup = view.findViewById(R.id.fgradiogroup);
+        fgrbMain = view.findViewById(R.id.fgrbMain);
+        fgrbEquipment = view.findViewById(R.id.fgrbEquipment);
+        fgrbTimer = view.findViewById(R.id.fgrbTimer);
+        fgrbMe = view.findViewById(R.id.fgrbMe);
+        //RadioGroup选中状态改变监听
+        fgradiogroup.setOnCheckedChangeListener(new frCheckChangeListener());
+        mPagerSun.setOffscreenPageLimit(4);
+
+        imageView = view.findViewById(R.id.toolbar_titleAdd_dev);
+        imageView.setOnClickListener(this);
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("早上好,钢镚儿");
+        // 使用Toolbar替换ActionBars
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+    }
+
+    private void initfgViewPager() {
+        fg1 = new FragmentTwoSun1();
+        fg2 = new FragmentTwoSun2();
+        fg3 = new FragmentTwoSun3();
+        fg4 = new FragmentTwoSun4();
+        fragmentSunList = new ArrayList<Fragment>();
+        fragmentSunList.add(0, fg1);
+        fragmentSunList.add(1, fg2);
+        fragmentSunList.add(2, fg3);
+        fragmentSunList.add(3, fg4);
+        mPagerSun.setCurrentItem(0);
+        //ViewPager页面切换监听
+        mPagerSun.setOnPageChangeListener(new myOnPageChangeListener());
+        mPagerSun.setAdapter(new myFragmentPagerAdapter(getChildFragmentManager(), fragmentSunList));
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.layout_menu, menu);
+    }
+
+    public MenuInflater getMenuInflater() {
+        return new MenuInflater(getActivity());
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_addsb:
-                //TODO  添加设备  AddSbActivity
-                openActivity(AddSbActivity.class);
+        switch (v.getId()) {
+            case R.id.one:
+                one.setTextColor(Color.parseColor("#52b9a8"));
+                two.setTextColor(Color.parseColor("#222222"));
+                three.setTextColor(Color.parseColor("#222222"));
+                popupWindow.dismiss();
+                flag = 0;
                 break;
-            case R.id.tv_replace:
-                //TODO  更换设备  ReplaceActivity
-                openActivity(ReplaceActivity.class);
+            case R.id.two:
+                one.setTextColor(Color.parseColor("#222222"));
+                two.setTextColor(Color.parseColor("#52b9a8"));
+                three.setTextColor(Color.parseColor("#222222"));
+                popupWindow.dismiss();
+                flag = 0;
                 break;
-            case R.id.tv_history:
-                //TODO  历史检测  HistoryMonitoringActivity
-                openActivity(HistoryMonitoringActivity.class);
+            case R.id.three:
+                one.setTextColor(Color.parseColor("#222222"));
+                two.setTextColor(Color.parseColor("#222222"));
+                three.setTextColor(Color.parseColor("#52b9a8"));
+                popupWindow.dismiss();
+                flag = 0;
+                Intent intent = new Intent(getActivity(), SearchDeviceActivity.class);
+                startActivityForResult(intent, 1);
                 break;
-        }
-    }
-
-    private void initData() {
-        list = new ArrayList<>();
-        for (int i = 1; i <= 2; i++) {
-            list.add("控制柜" + i);
-        }
-    }
-
-    private void findView() {
-//        swipebjxx = view.findViewById(R.id.swipebjxx);
-        recyclersbfragment = view.findViewById(R.id.recyclersbfragment);
-        recyclersbfragment.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(getActivity(), "点击:" + position, Toast.LENGTH_LONG).show();
-                openActivity(SensorListActivity.class);
-            }
-
-            @Override
-            public void onLongClick(View view, int posotion) {
-                Toast.makeText(getActivity(), "长按:" + posotion, Toast.LENGTH_LONG).show();
-//                showPopMenu(view, posotion);
-
-            }
-        }));
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclersbfragment.setLayoutManager(linearLayoutManager);
-    }
-//    private void initRefreshLayout() {
-//        swipebjxx.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
-//                android.R.color.holo_orange_light, android.R.color.holo_green_light);
-//        swipebjxx.setOnRefreshListener(this);
-//    }
-
-    private void initRecyclerView() {
-        adapter = new FacilityFAdapter(getDatas(0, PAGE_COUNT), getActivity(), getDatas(0, PAGE_COUNT).size() > 0);
-        mLayoutManager = new GridLayoutManager(getActivity(), 1);
-        recyclersbfragment.setLayoutManager(mLayoutManager);
-        recyclersbfragment.setAdapter(adapter);
-        recyclersbfragment.setItemAnimator(new DefaultItemAnimator());
-        //添加Android自带的分割线
-//        recyclerView.addItemDecoration(new DividerItemDecoration(AddressListActivity.this, DividerItemDecoration.VERTICAL));
-        recyclersbfragment.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    if (adapter.isFadeTips() == false && lastVisibleItem + 1 == adapter.getItemCount()) {
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                updateRecyclerView(adapter.getRealLastPosition(), adapter.getRealLastPosition() + PAGE_COUNT);
-                            }
-                        }, 500);
-                    }
-
-                    if (adapter.isFadeTips() == true && lastVisibleItem + 2 == adapter.getItemCount()) {
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                updateRecyclerView(adapter.getRealLastPosition(), adapter.getRealLastPosition() + PAGE_COUNT);
-                            }
-                        }, 500);
-                    }
-                }
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
-            }
-        });
-    }
-
-    private List<String> getDatas(final int firstIndex, final int lastIndex) {
-        List<String> resList = new ArrayList<>();
-        for (int i = firstIndex; i < lastIndex; i++) {
-            if (i < list.size()) {
-                resList.add(list.get(i));
-            }
-        }
-        return resList;
-    }
-
-    private void updateRecyclerView(int fromIndex, int toIndex) {
-        List<String> newDatas = getDatas(fromIndex, toIndex);
-        if (newDatas.size() > 0) {
-            adapter.updateList(newDatas, true);
-        } else {
-            adapter.updateList(null, false);
+            case R.id.toolbar_titleAdd_dev:
+//                if (flag == 0) {
+//                    popupWindow.showAsDropDown(v, -5, 0);
+//                    flag = 1;
+//                } else {
+//                    popupWindow.dismiss();
+//                    flag = 0;
+//
+//                }
+                Intent intentlink = new Intent(getActivity(), SelectorLinkTypeActivity.class);
+//                startActivityForResult(intentlink, 1);
+                startActivity(intentlink);
+                break;
         }
     }
 
 //    @Override
-//    public void onRefresh() {
-//        swipebjxx.setRefreshing(true);
-//        adapter.resetDatas();
-//        updateRecyclerView(0, PAGE_COUNT);
-//        mHandler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                swipebjxx.setRefreshing(false);
-//            }
-//        }, 1000);
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        //此处可以根据两个Code进行判断，本页面和结果页面跳过来的值
+//        if (requestCode == 1 && resultCode == 3) {
+//            /*dev_name = data.getStringExtra("dev_name");
+//            mac_addr = data.getStringExtra("mac_addr");
+//            char_uuid = data.getStringExtra("char_uuid");
+//            UserEvent userEvent=new UserEvent();
+//            data.getStringExtra(userEvent.getDev_name());
+//            //发送事件
+//            EventBus.getDefault().post(new UserEvent(dev_name,mac_addr,char_uuid));*/
+//            //方法二：
+//            String jsonList = data.getStringExtra("jsonList");
+//            EventBus.getDefault().post(new UserEvent(jsonList));
+//        }
 //    }
+    /**
+     * RadioButton切换Fragment
+     */
+    private class frCheckChangeListener implements RadioGroup.OnCheckedChangeListener {
 
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            switch (checkedId) {
+
+                case R.id.fgrbMain:
+                    //TODO 控制柜
+                    mPagerSun.setCurrentItem(0);
+                    fgrbMain.setChecked(true);
+                    fgrbEquipment.setChecked(false);
+                    fgrbTimer.setChecked(false);
+                    fgrbMe.setChecked(false);
+                    break;
+                case R.id.fgrbEquipment:
+                    //TODO 壁挂式
+                    mPagerSun.setCurrentItem(1);
+                    fgrbMain.setChecked(false);
+                    fgrbEquipment.setChecked(true);
+                    fgrbTimer.setChecked(false);
+                    fgrbMe.setChecked(false);
+                    break;
+                case R.id.fgrbTimer:
+                    //TODO 便携
+                    mPagerSun.setCurrentItem(2);
+                    fgrbMain.setChecked(false);
+                    fgrbEquipment.setChecked(false);
+                    fgrbTimer.setChecked(true);
+                    fgrbMe.setChecked(false);
+                    break;
+                case R.id.fgrbMe:
+                    //TODO 分组
+                    mPagerSun.setCurrentItem(3);
+                    fgrbMain.setChecked(false);
+                    fgrbEquipment.setChecked(false);
+                    fgrbTimer.setChecked(false);
+                    fgrbMe.setChecked(true);
+                    break;
+            }
+        }
+    }
+
+    /**
+     * ViewPager切换Fragment,RadioGroup做相应变化
+     */
+    private class myOnPageChangeListener implements ViewPager.OnPageChangeListener {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+        @Override
+        public void onPageSelected(int position) {
+            switch (position) {
+                case 0:
+                    fgradiogroup.check(R.id.fgrbMain);
+                    break;
+                case 1:
+                    fgradiogroup.check(R.id.fgrbEquipment);
+                    break;
+                case 2:
+                    fgradiogroup.check(R.id.fgrbTimer);
+                    break;
+                case 3:
+                    fgradiogroup.check(R.id.fgrbMe);
+                    break;
+            }
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

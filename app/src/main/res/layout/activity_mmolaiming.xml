@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pop_layout_concentration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_shape_corner_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/colse_concentration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:src="@drawable/icon_colse" />
+
+            <TextView
+                android:id="@+id/name_concentration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="浓度标定"
+                android:textColor="#000000"
+                android:textSize="24dp" />
+
+            <!--浓度标定-->
+            <LinearLayout
+                android:id="@+id/mmol_mmol"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_nd1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="记录在标准的被检测气体浓度下传感器的状态" />
+            </LinearLayout>
+
+            <!--传感器-->
+            <LinearLayout
+                android:id="@+id/cgq_concentration_bq"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.hf.hf_smartcloud.utils.MultiLineRadioGroup
+                    android:id="@+id/rgp_concentration_bq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/top_layoutone_bq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb1_concentration_bq1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="C6H6"
+                            android:textColor="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/rb2_concentration_bq2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="NH3"
+                            android:textColor="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/rb3_concentration_bq3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="O2"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/top_layouttwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb4_concentration_bq4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="SO2"
+                            android:textColor="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/rb5_concentration_bq5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="CO"
+                            android:textColor="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/rb6_concentration_bq6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/ceackbtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="H2S"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+                </com.hf.hf_smartcloud.utils.MultiLineRadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="选择需要校正零点的传感器" />
+
+            </LinearLayout>
+
+            <!--标气参数-->
+            <LinearLayout
+                android:id="@+id/param_concentration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:id="@+id/gifImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="请输入标气浓度"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_con_param"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789."
+                        android:hint="1000"
+                        android:inputType="numberDecimal|number"
+                        android:maxLength="10"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ppm"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--准备-->
+            <LinearLayout
+                android:id="@+id/prepare_concentration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView_concentration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/biaoqi" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.3"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cbox_mmol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请安装仪器标气罩，接入纯氮气或将仪器置于纯净无反应气体环境中" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--标定中-->
+            <LinearLayout
+                android:id="@+id/calibrationin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.hf.hf_smartcloud.utils.CountDownView
+                    android:id="@+id/countDownView_mmol"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:countdownTime="5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:ringWidth="10" />
+
+                <!--显示值-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/zero"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1053"
+                            android:textColor="@color/gray"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="零点标定值"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%LEL"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="当前浓度"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/realtime_police"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="实时标定值"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/full"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1053"
+                            android:textColor="@color/gray"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="满量程标定值"
+                            android:textColor="@color/gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--是否成功-->
+            <LinearLayout
+                android:id="@+id/isSuccessful_mic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.hf.hf_smartcloud.utils.CustomStatusView
+                    android:id="@+id/pic_mic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="3dp"
+                    app:load_failure_color="@color/load"
+                    app:load_success_color="@color/load"
+                    app:progress_color="@color/load"
+                    app:progress_radius="40dp"
+                    app:progress_width="3dp" />
+
+                <TextView
+                    android:id="@+id/msg_mic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="零点标定成功" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--底部按钮-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pop_layout"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_cancelmic"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:background="@drawable/icon_no_quxiao"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/pageNomic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1/5" />
+
+            <TextView
+                android:id="@+id/btn_go1mic"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="继续"
+                android:background="@drawable/icon_yes_goon"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

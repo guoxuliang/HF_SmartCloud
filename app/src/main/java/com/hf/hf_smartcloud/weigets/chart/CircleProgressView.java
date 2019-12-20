@@ -7,11 +7,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.SweepGradient;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.hf.hf_smartcloud.R;
+import com.hf.hf_smartcloud.utils.Colors;
+
 /**
  * 普通环形进度条
  */
@@ -24,6 +27,11 @@ public class CircleProgressView extends View {
     private int locationStart;//起始位置
     private float startAngle;//开始角度
     private ValueAnimator mAnimator;
+
+    private Paint fillArcPaint;
+
+    //渐变数组
+    private int[] arcColors = new int[] {Colors.RED,Colors.RED_TRANSLUCENT};
 
     public CircleProgressView(Context context) {
         this(context, null);
@@ -41,8 +49,8 @@ public class CircleProgressView extends View {
     private void init(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressView);
         locationStart = typedArray.getInt(R.styleable.CircleProgressView_location_start, 1);
-        mProgressWidth = typedArray.getDimension(R.styleable.CircleProgressView_progress_width, dp2px(context, 4));
-        mProgressColor = typedArray.getColor(R.styleable.CircleProgressView_progress_color, R.drawable.my_progressbar);
+        mProgressWidth = typedArray.getDimension(R.styleable.CustomStatusView_progress_width, dp2px(context, 4));
+        mProgressColor = typedArray.getColor(R.styleable.CustomStatusView_progress_color, R.drawable.my_progressbar);
         typedArray.recycle();
 
         //背景圆弧
@@ -80,6 +88,16 @@ public class CircleProgressView extends View {
         } else if (locationStart == 4) {//下
             startAngle = -180;
         }
+
+        fillArcPaint = new Paint();
+        // 设置是否抗锯齿
+        fillArcPaint.setAntiAlias(true);
+        // 帮助消除锯齿
+        fillArcPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        // 设置中空的样式
+        fillArcPaint.setStyle(Paint.Style.STROKE);
+        fillArcPaint.setDither(true);
+        fillArcPaint.setStrokeJoin(Paint.Join.ROUND);
     }
 
     @Override
@@ -105,6 +123,9 @@ public class CircleProgressView extends View {
         //绘制当前进度
         float sweepAngle = 360 * mCurrent / 100;
         canvas.drawArc(rectF, startAngle, sweepAngle, false, mProgressPaint);
+
+        SweepGradient sweepGradient = new SweepGradient(mProgressWidth / 2, getHeight() / 2, arcColors, null);
+        fillArcPaint.setShader(sweepGradient);
     }
 
     public int getCurrent() {
@@ -172,5 +193,13 @@ public class CircleProgressView extends View {
     public static int dp2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
+    }
+
+    public int[] getArcColors() {
+        return arcColors;
+    }
+    public void setArcColors(int[] arcColors) {
+        this.arcColors = arcColors;
+//		this.invalidate();
     }
 }

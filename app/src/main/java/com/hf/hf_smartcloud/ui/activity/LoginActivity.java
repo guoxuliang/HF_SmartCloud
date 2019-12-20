@@ -176,34 +176,34 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.next_btn:
-                if (verifyMobile()) {
-                    mMobileTil.setErrorEnabled(false);
-                } else {
-                    mMobileTil.setErrorEnabled(true);
-                    mMobileTil.setError("手机号格式错误");
-                }
-
-                //调用登录接口
-                phoneMailTv = et_login_mobile.getText().toString().trim();
-                password = et_login_password.getText().toString().trim();
-                boolean IsphoneNumber = StringHelper.isPhoneNumber(phoneMailTv);
-                boolean isEmail = StringHelper.isEmail(phoneMailTv);
-                String countryCode = login_country_name.getText().toString().trim();
-                if (phoneMailTv.equals("")) {
-                    showToast("用户名不能为空");
-                    return;
-                }
-                if (password.equals("")) {
-                    showToast("密码不能为空");
-                    return;
-                }
-                if (IsphoneNumber) {
-                    phoneMail = countryCode + "-" + phoneMailTv;
-                } else {
-                    phoneMail = phoneMailTv;
-                }
-                showLoadingDialog("正在登录");
-                        sendLogin(phoneMail, password);
+//                if (verifyMobile()) {
+//                    mMobileTil.setErrorEnabled(false);
+//                } else {
+//                    mMobileTil.setErrorEnabled(true);
+//                    mMobileTil.setError("手机号格式错误");
+//                }
+//                //调用登录接口
+//                phoneMailTv = et_login_mobile.getText().toString().trim();
+//                password = et_login_password.getText().toString().trim();
+//                boolean IsphoneNumber = StringHelper.isPhoneNumber(phoneMailTv);
+//                boolean isEmail = StringHelper.isEmail(phoneMailTv);
+//                String countryCode = login_country_name.getText().toString().trim();
+//                if (phoneMailTv.equals("")) {
+//                    showToast("用户名不能为空");
+//                    return;
+//                }
+//                if (password.equals("")) {
+//                    showToast("密码不能为空");
+//                    return;
+//                }
+//                if (IsphoneNumber) {
+//                    phoneMail = countryCode + "-" + phoneMailTv;
+//                } else {
+//                    phoneMail = phoneMailTv;
+//                }
+//                showLoadingDialog("正在登录");
+//                        sendLogin(phoneMail, password);
+                openActivity(MainActivity.class);
                 break;
             case R.id.register_tv:
                 openActivity(RegisterActivity.class);

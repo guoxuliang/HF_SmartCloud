@@ -6,6 +6,10 @@
 
     <color name="sendbackgound">#4A4A4A</color>
 
+    <color name="mainzise">#b4a4F7</color>
+    <color name="selectzise">#725FC2</color>
+    <color name="zitizise">#623ef9</color>
+    <color name="color_b7b8bd">#b7b8bd</color>
     <color name="photopicker_background">#181819</color>
     <!-- 新增 -->
     <color name="gray_line">#eeeeee</color>
@@ -218,4 +222,27 @@
     <color name="textcolor_mine_normal">#666666</color>
     <color name="checked_textcolor">#f56a30</color>
     <color name="default_color">#898787</color>
+
+
+    <color name="default_color2">#33F92B</color>
+    <color name="default_color3">#3233F92B</color>
+    <color name="default_color4">#7a33F92B</color>
+    <color name="default_color5">#eaecf0</color>
+    <color name="default_color6">#33F92B</color>
+    <color name="default_color7">#eaecf0</color>
+
+    <color name="colorPress">#ffffff</color>
+    <color name="colorNormal">#8A73F5</color>
+    <color name="tv_style_color_main">#7A63E5</color>
+    <color name="tv_style_color_seconde">#FFFFFF</color>
+    <color name="tv_style_color_sec">#997C4DFF</color>
+
+    <color name="color_zise">#B4A4F7</color>
+    <color name="color_shenzise">#8557FF</color>
+    <color name="whrit">#ffffff</color>
+
+    <color name="load_success">#03a44e</color>
+    <color name="load_failure">#de0e26</color>
+
+    <color name="load">#ff43815c</color>
 </resources>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/liner"
+        android:title="线性列表" />
+
+    <item
+        android:id="@+id/grid"
+        android:title="网格列表" />
+
+</menu>
